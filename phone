@@ -1,0 +1,28 @@
+ck=1
+args=$1
+if [ $# -eq 0 ]
+  then 
+      echo "Usage: phone searchfor[...searchfor]"
+      echo "(You didn't tell me what you want to search for.)"
+
+  else
+      for arg in $@
+      do
+         if [ $ck -eq 0 ] 
+         
+         then 
+
+           ck=`expr $ck + 1`
+
+         else
+
+           args="${args}|${arg}"
+                                                                                                             
+         fi
+     
+      done 
+
+   egrep -i "$args" mydata | awk -f display.awk
+
+fi          
+
